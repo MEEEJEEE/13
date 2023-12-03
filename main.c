@@ -1,23 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
-// 실습1
-struct student {
-    int ID;
-    char name[100];
-    double grade;
-};
+// 실습2
+struct point {
+	int x; 
+	int y; 
+}; 
 
-int main(void) {
-    struct student s1 = {123, "MIJI", 4.3};
+int main (void) { 
 
-    s1.ID = 123456;
-    s1.name[0] = 'c';
-    s1.grade = 0.7; // 변수명을 score에서 grade로 수정
+	struct point p1, p2; 
+	int xdiff, ydiff; 
+	double dist; 
 
-    printf("ID : %d\n", s1.ID); // 변수명을 s에서 s1로 수정
-    printf("name : %s\n", s1.name); 
-    printf("grade : %f\n", s1.grade); 
+	printf("input p1 coordinate (x y) : "); 
+	scanf("%d %d", &p1.x, &p1.y); 
+	
+	printf("input p2 coordinate (x y) : "); 
+	scanf("%d %d", &p2.x, &p2.y);
 
-    return 0; // main 함수의 반환값을 0으로 설정  
+	//distance
+	xdiff = p2.x - p1.x;
+	ydiff = p2.y - p1.y;
+	dist = sqrt(xdiff*xdiff + ydiff * ydiff);
+	
+	printf("distance : %f\n", dist);
+	
+	return 0;
 }
